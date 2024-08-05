@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <body class="home">
+    {%block body%} 
+      </br>
+      <h2 class = "heading">{{recipename}}</h2>
+      <div id = "appointments">
+      
+      </br>
+      <div class="recipebox">
+        <img src = "{{url_for('static', filename="Recipe_Pictures/"+paths)}}" class = "recipepictureclass" >
+        <div class = "insiderecipebox">
+          <h3>Cooking Time: {{cookingtime}} min </h3>
+          <h3>Difficulty Level: {{difficultylevel}}/10</h3>
+          <h3>Description: {{description}}</h3>
+          <h3>Recipe: {{recipe}}</h3>
+          
+        </div>
+      </div>
+    
+      
+      
+      </br>
+    {%endblock%}
+  </body>
+</html>

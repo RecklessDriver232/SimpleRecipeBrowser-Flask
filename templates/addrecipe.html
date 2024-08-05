@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <body class="home">
+    {%block body%} 
+    </br>
+      <h2 class = "heading">Add a New Recipe</h2>
+      <div class = container>
+        {% if message %}
+        <h3 type="message">{{message}}</h3>
+        {% endif %} {% if error %}
+        <h3 type="error">{{error}}</h3>
+        {% endif %}
+        <form id = "AddNewRecipe" enctype="multipart/form-data" action="/addrecipe" method="POST">
+            {{form.csrf_token}}
+            <h3 class = "form-element-title">Recipe Name:</h3>
+            {{form.RecipeName(class_ = "formdata", placeholder_ = "Recipe Name", required = True)}}
+            <h3 class = "form-element-title">Difficulty Level:</h3>
+            {{form.DifficultyLevel(class_ = "formdata", placeholder_ = "Difficulty Level", required = True)}}
+            <h3 class = "form-element-title">Cooking Time:</h3>
+            {{form.CookingTime(class_ = "formdata", placeholder_ = "In minutes", required = True)}}
+            <h3 class = "form-element-title">Description:</h3>
+            {{form.Description(class_ = "formdata", placeholder_ = "Description", required = True)}}
+            <h3 class = "form-element-title">Recipe:</h3>
+            {{form.Recipe(class_ = "formdata", placeholder_ = "Recipe", required = True)}}
+            <h3 class = "form-element-title">Recipe Photo:</h3>
+            {{form.RecipePhoto(class_ = "formdata")}}
+            {{form.Submit(class_ = "submit")}}
+        </form>
+      </div>
+      
+    </br>
+    {%endblock%}
+  </body>
+</html>

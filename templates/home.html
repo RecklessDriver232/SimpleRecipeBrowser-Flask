@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <body class="home">
+    {%block body%} 
+    </br>
+      
+      <h2 class = "heading">Recipe Browser</h2>
+      <div id = "appointments">
+      {%for i in RecipeAll%}
+      <div class = "appointment-card">
+          <img src = "{{url_for('static', filename='Recipe_Pictures/'+i['Image'])}}" class = "pictureclass" >
+          <h1>{{i["RecipeName"]}}</h1>
+          <p>{{i["Description"]}}</p>
+          <form action="/home" method="POST">
+          {{form.csrf_token}}
+          {{form.RecipeId(value = i['RecipeId'])}}
+          {{form.Submit(class_ = "Learn More")}}
+          </form>
+          <p class = "UserDisplay">Posted by: {{i["Username"]}}</p>
+      </div>
+        {%endfor%}
+    </div>
+      
+      
+    </br>
+    {%endblock%}
+  </body>
+</html>
